@@ -1,12 +1,9 @@
-console.log(questions);
-
 var time = questions.length * 10;
-console.log(time);
 var timer;
 var qIndex = 0;
 var startBtn = document.getElementById("start-btn");
 var timeEl = document.getElementById("time");
-var questionEl = document.getElementById("choices");
+var questionsEl = document.getElementById("questions");
 var choicesEl = document.getElementById("choices");
 
 function startQuiz() {
@@ -29,12 +26,13 @@ function showQuestion() {
   var currentQuestion = questions[qIndex];
   questionsEl.textContent = currentQuestion.title;
   choicesEl.innerHTML = "";
-  for (var i = 0; i < currentQuestion.choices.length; i++)
+  for (var i = 0; i < currentQuestion.choices.length; i++) {
     var choice = currentQuestion.choices[i];
-  var newBtn = document.createElement("button");
-  newBtn.textContent = choice;
-  choicesEl.appendChild(newBtn);
-  newBtn.onclick = choiceClick;
+    var newBtn = document.createElement("button");
+    newBtn.textContent = choice;
+    choicesEl.appendChild(newBtn);
+    newBtn.onclick = choiceClick;
+  }
 }
 
 function choiceClick(event) {
@@ -53,4 +51,5 @@ function choiceClick(event) {
     showQuestion();
   }
 }
+
 startBtn.onclick = startQuiz;

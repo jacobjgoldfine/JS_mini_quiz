@@ -9,4 +9,9 @@ var questions = [
     choices: ["42", "45"],
     answer: "42",
   },
+  {
+    title: "What is CSS stand for?",
+    choices: ["Cascading Style Sheet", "Current Sheet Styles", "Can't Stand Style"],
+    answer: "Cascading Style Sheet",
+  },
 ];
