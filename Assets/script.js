@@ -5,6 +5,7 @@ var startBtn = document.getElementById("start-btn");
 var timeEl = document.getElementById("time");
 var questionsEl = document.getElementById("questions");
 var choicesEl = document.getElementById("choices");
+var gameSpace = document.getElementById("gameSpace");
 
 function startQuiz() {
   timer = setInterval(function () {
@@ -19,6 +20,15 @@ function startQuiz() {
 
 function endQuiz() {
   clearInterval(timer);
+  timeEl.textContent = "Game Over";
+  var timeScore = time;
+  timeEl.textContent = `Score ${timeScore}`;
+  var intial = document.createElement("form");
+  var intialSubmit = document.createElement("button");
+
+  intialSubmit.textContent = "submit intial and score";
+  questionsEl.innerHTML = intial;
+  choicesEl.innerHTML = intialSubmit;
 }
 
 //add if statement
@@ -37,7 +47,7 @@ function showQuestion() {
 
 function choiceClick(event) {
   if (qIndex >= questions.length) {
-    //end quiz thing
+    endQuiz();
   } else {
     var currentQuestion = questions[qIndex];
     var choiceClick = event.target.textContent;
