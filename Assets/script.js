@@ -21,19 +21,41 @@ function startQuiz() {
 function endQuiz() {
   clearInterval(timer);
   timeEl.textContent = "Game Over";
-  var timeScore = time;
+  var timeScore = timeEl.value;
+  console.log(timeScore);
   timeEl.textContent = `Score ${timeScore}`;
-  var intial = document.createElement("form");
-  var intialSubmit = document.createElement("button");
-
-  intialSubmit.textContent = "submit intial and score";
-  questionsEl.innerHTML = intial;
-  choicesEl.innerHTML = intialSubmit;
 }
 
 //add if statement
+
+// function showQuestion() {
+//   questions.forEach((item, index, array) => {
+//     asyncFunction(item, () => {
+//       itemsProcessed++;
+//       if (itemsProcessed < array.length) {
+//         var currentQuestion = questions[qIndex];
+//         if (questions) {
+//           questionsEl.textContent = currentQuestion.title;
+//           choicesEl.innerHTML = "";
+//           for (var i = 0; i < currentQuestion.choices.length; i++) {
+//             var choice = currentQuestion.choices[i];
+//             var newBtn = document.createElement("button");
+//             newBtn.textContent = choice;
+//             choicesEl.appendChild(newBtn);
+//             newBtn.onclick = choiceClick;
+//           }
+//         }
+//       } else {
+//         endQuiz;
+//       }
+//     });
+//   });
+// }
+
 function showQuestion() {
   var currentQuestion = questions[qIndex];
+
+  // if (questions.length) {
   questionsEl.textContent = currentQuestion.title;
   choicesEl.innerHTML = "";
   for (var i = 0; i < currentQuestion.choices.length; i++) {
@@ -43,6 +65,9 @@ function showQuestion() {
     choicesEl.appendChild(newBtn);
     newBtn.onclick = choiceClick;
   }
+  // } else {
+  //   endQuiz();
+  // }
 }
 
 function choiceClick(event) {
